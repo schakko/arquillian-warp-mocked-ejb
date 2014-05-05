@@ -16,3 +16,4 @@ The EJB acts only as a facade. Inside the facade exists a Mockito instance which
 # Running the example
 Import the project into your Eclipse instance, deploy the application to your JBoss. You should see the text "A real database user".
 Execute the unit test inside Eclipse. Firefox opens and show "A mocked user instance". The UserRepository class is not deployed. The UserService returns the defined value inside the test.
+
