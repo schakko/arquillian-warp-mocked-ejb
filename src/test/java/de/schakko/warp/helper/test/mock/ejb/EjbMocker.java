@@ -107,7 +107,6 @@ public class EjbMocker {
 	 * Simple fluent interface for building new mocked EJBs
 	 * 
 	 * @author ckl
-	 * 
 	 */
 	public static class EjbMockerBuilder {
 		private EjbMocker instance;
@@ -151,7 +150,7 @@ public class EjbMocker {
 		}
 
 		/**
-		 * Ingore method with given name; TODO: check method signature for
+		 * Ignore method with given name; TODO: check method signature for
 		 * overloaded messages
 		 * 
 		 * @param method
@@ -186,7 +185,7 @@ public class EjbMocker {
 	/**
 	 * Creates a new mockable EJB facade. You must provide the sourceClazz by
 	 * name or it will be loaded by the parent classloader. I didn't implement
-	 * further classloader foo for handling this.
+	 * further classloader-foo for handling this.
 	 * 
 	 * @param sourceClazz
 	 *            You are *not* allowed to load the given class before it is
@@ -336,8 +335,8 @@ public class EjbMocker {
 
 	/**
 	 * Creates the delegate methods inside the facade. Every EJB/facade method
-	 * will be forwarded to the embedded Mockito instance. This methods only
-	 * createds the method and contains empty method bodies. This is ncessary
+	 * will be forwarded to the embedded Mockito instance. These methods only
+	 * create the method and contain empty method bodies. This is necessary
 	 * for preventing method-dependency issues.
 	 * 
 	 * @param clazz
@@ -418,12 +417,12 @@ public class EjbMocker {
 				sb.append("return ");
 			}
 
-			// the class cast must be done or we don't fulfil the interface
-			// specifiaction.
+			// the class cast is required, otherwise we don't fulfil the interface
+			// specification.
 			sb.append("((" + clazz.getName() + ")this." + EjbMockerUtil.MOCK_ACCESSOR + "()).");
 			sb.append(method.getName());
 			sb.append("(");
-			// $$ resolves to "every method parameter"
+			// $$ resolves to: "every method parameter"
 			sb.append("$$");
 			sb.append(");");
 
